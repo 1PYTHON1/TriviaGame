@@ -7,7 +7,9 @@ import pandas as pd
 import random
 
 #open api link to database
-with urlopen("https://opentdb.com/api.php?amount=50&category=18&difficulty=medium&type=multiple") as webpage:
+database_api_cine="https://opentdb.com/api.php?amount=50&category=14&difficulty=medium&type=multiple"
+database_api_computer="https://opentdb.com/api.php?amount=50&category=18&difficulty=medium&type=multiple"
+with urlopen(database_api_animal) as webpage:
     #read JSON file & extract data
     data = json.loads(webpage.read().decode())
     df = pd.DataFrame(data["results"])
@@ -15,7 +17,7 @@ with urlopen("https://opentdb.com/api.php?amount=50&category=18&difficulty=mediu
 #load 1 instance of questions & answers at a time from the database
 def preload_data(idx):
     #idx parm: selected randomly time and again at function call
-    question = df["question"][idx]
+    question = df["question"][idx]s
     correct = df["correct_answer"][idx]
     wrong = df["incorrect_answers"][idx]
 
